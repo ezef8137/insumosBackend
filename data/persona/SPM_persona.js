@@ -1,6 +1,6 @@
-const { connection } = require("../../config");
+const { connect } = require("../../config");
 
-const SPM_Persona= (req,res) => {
+const SPM_Persona= async (req,res) => {
     console.log(req.body)
     const{
         IdPersona,
@@ -11,21 +11,20 @@ const SPM_Persona= (req,res) => {
         Telefono
     }= req.body;
 
-    const SPM_Persona= "CALL SPM_Persona(?,?,?,?,?,?)"
-    connection.query(
-        SPM_Persona,[
-            IdPersona,
-            Nombre,
-            Apellido,
-            FechaNacimiento,
-            Dni,
-            Telefono
-
-        ],
-        (err, response) => {
-            if(err) return console.log(err)
-             res.status(200).send(response[0][0]);
-           }
-    );
+    try{
+        const pool = await connect();
+        const result = await pool.request()
+            .input('p_IdPersona', IdPersona)
+            .input('p_Nombre', Nombre)
+            .input('p_Apellido', Apellido)
+            .input('p_FechaNacimiento', FechaNacimiento)
+            .input('p_Dni', Dni)
+            .input('p_Telefono', Telefono)
+            .execute('SPA_persona'); // Ejecuta el procedimiento almacenado en SQL Server
+        res.status(200).send(result.recordset[0]); // Enviar el primer resultado
+        }catch (err) {
+            console.error('Error al ejecutar el procedimiento almacenado:', err);
+            res.status(500).send('Error en el servidor');
+        }
 };
 module.exports= {SPM_Persona}
