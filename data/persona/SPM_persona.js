@@ -20,7 +20,7 @@ const SPM_Persona= async (req,res) => {
             .input('p_FechaNacimiento', FechaNacimiento)
             .input('p_Dni', Dni)
             .input('p_Telefono', Telefono)
-            .execute('SPA_persona'); // Ejecuta el procedimiento almacenado en SQL Server
+            .execute('SPM_persona'); // Ejecuta el procedimiento almacenado en SQL Server
         res.status(200).send(result.recordset[0]); // Enviar el primer resultado
         }catch (err) {
             console.error('Error al ejecutar el procedimiento almacenado:', err);
