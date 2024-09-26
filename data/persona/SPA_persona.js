@@ -11,19 +11,26 @@ const SPA_Persona = async (req, res) => {
   } = req.body;
 
   try {
-    const pool = await connect(); // Obtenemos la conexión de la función connect
+    const pool = await connect();
     const result = await pool.request()
       .input('p_nombre', Nombre)
       .input('p_apellido', Apellido)
-      .input('p_fecha_de_Nacimiento', FechaDeNacimiento)
+      .input('p_fecha_de_nacimiento', FechaDeNacimiento)
       .input('p_dni', Dni)
       .input('p_telefono', Telefono)
-      .execute('SPA_persona'); // Ejecuta el procedimiento almacenado en SQL Server
+      .execute('SPA_persona');
 
-    res.status(200).send(result.recordset[0]); // Enviar el primer resultado
+    const message = result.recordset[0].Message;
+
+    // Manejo de los códigos de estado basado en el mensaje
+    if (message.includes('éxito')) {
+      res.status(200).send({ message });
+    } else{
+      res.status(400).send({message})
+    }
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);
-    res.status(500).send('Error en el servidor');
+    res.status(500).send({ message: 'Error en el servidor' });
   }
 };
 

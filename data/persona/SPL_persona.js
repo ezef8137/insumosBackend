@@ -1,10 +1,18 @@
 const { connect } = require("../../config");
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  // Formato: dd-mm-yyyy
+  const formattedDate = date.toLocaleDateString("es-ES", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+  return formattedDate;
+};
+
 const SPL_Persona = async (req, res) => {
-  console.log(req.body);
-  const {
-    Filtro
-  } = req.body;
+  const { Filtro } = req.body;
 
   try {
     const pool = await connect(); // Obtenemos la conexión de la función connect
@@ -12,7 +20,17 @@ const SPL_Persona = async (req, res) => {
       .input('Filtro', Filtro)
       .execute('SPL_Persona'); // Ejecuta el procedimiento almacenado en SQL Server
 
-    res.status(200).send(result.recordset);
+    // Formatear las fechas del recordset, incluyendo FechaDeNacimiento
+    const formattedResult = result.recordset.map(record => {
+      return {
+        ...record,
+        FechaAlta: record.FechaAlta ? formatDate(record.FechaAlta) : null,
+        FechaBaja: record.FechaBaja ? formatDate(record.FechaBaja) : null,
+        FechaDeNacimiento: record.FechaDeNacimiento ? formatDate(record.FechaDeNacimiento) : null,
+      };
+    });
+
+    res.status(200).send(formattedResult); // Enviar el recordset con las fechas formateadas
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);
     res.status(500).send('Error en el servidor');
