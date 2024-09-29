@@ -5,7 +5,7 @@ const SPM_Persona = async (req, res) => {
     IdPersona,
     Nombre,
     Apellido,
-    FechaNacimiento,
+    FechaDeNacimiento,
     Dni,
     Telefono
   } = req.body;
@@ -16,7 +16,7 @@ const SPM_Persona = async (req, res) => {
       .input('p_IdPersona', IdPersona)
       .input('p_Nombre', Nombre)
       .input('p_Apellido', Apellido)
-      .input('p_FechaNacimiento', FechaNacimiento)
+      .input('p_FechaNacimiento', FechaDeNacimiento)
       .input('p_Dni', Dni)
       .input('p_Telefono', Telefono)
       .execute('SPM_Persona');

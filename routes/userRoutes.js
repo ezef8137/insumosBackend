@@ -11,6 +11,9 @@ const {SPH_Persona}= require("../data/persona/SPH_persona")
 //registro usuario
 const {SPA_Usuario} = require ("../data/usuarios/SPA_usuarios")
 const {SPM_Usuario} = require ("../data/usuarios/SPM_usuarios")
+const {SPL_Usuario} = require ("../data/usuarios/SPL_usuarios")
+const {SPB_Usuario} =require ("../data/usuarios/SPB_usuarios")
+const {SPH_Usuario} =require ("../data/usuarios/SPH_usuarios")
 
 
 //Persona
@@ -22,6 +25,11 @@ router.post("/HabilitarPersona",SPH_Persona)
 //Usuario
 router.post("/AltaUsuario",SPA_Usuario)
 router.post("/ModificarUsuario",SPM_Usuario)
+router.post("/VerUsuario",SPL_Usuario)
+router.post("/BajaUsuario",SPB_Usuario)
+router.post("/HabilitarUsuario",SPH_Usuario)
+
+
 
 
 
