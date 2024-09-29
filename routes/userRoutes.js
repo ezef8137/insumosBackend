@@ -15,6 +15,14 @@ const {SPL_Usuario} = require ("../data/usuarios/SPL_usuarios")
 const {SPB_Usuario} =require ("../data/usuarios/SPB_usuarios")
 const {SPH_Usuario} =require ("../data/usuarios/SPH_usuarios")
 
+//Registro insumo
+const {SPA_Insumo} = require ("../data/insumos/SPA_insumo")
+const {SPL_Insumo} = require ("../data/insumos/SPL_insumo")
+const {SPB_Insumo} = require ("../data/insumos/SPB_insumo")
+const {SPM_Insumo} = require ("../data/insumos/SPM_insumo")
+const {SPH_Insumo} = require ("../data/insumos/SPH_insumo")
+
+
 
 //Persona
 router.post("/AltaPersona",SPA_Persona)
@@ -28,6 +36,14 @@ router.post("/ModificarUsuario",SPM_Usuario)
 router.post("/VerUsuario",SPL_Usuario)
 router.post("/BajaUsuario",SPB_Usuario)
 router.post("/HabilitarUsuario",SPH_Usuario)
+
+//Insumo
+router.post("/AltaInsumo",SPA_Insumo)
+router.post("/VerInsumo",SPL_Insumo)
+router.post("/BajaInsumo",SPB_Insumo)
+router.post("/ModificarInsumo",SPM_Insumo)
+router.post("/HabilitarInsumo",SPH_Insumo)
+
 
 
 
