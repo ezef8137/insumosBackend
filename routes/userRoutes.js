@@ -22,6 +22,15 @@ const {SPB_Insumo} = require ("../data/insumos/SPB_insumo")
 const {SPM_Insumo} = require ("../data/insumos/SPM_insumo")
 const {SPH_Insumo} = require ("../data/insumos/SPH_insumo")
 
+//Login
+const {SP_Login} = require ("../data/login/login")
+
+//sedes
+const {SPL_Sedes}= require ("../data/sedes/SPL_sedes")
+
+//recuperar contraseña
+const {SPM_Contraseña}= require ("../data/recuperar_contraseña/RecuperarClave")
+
 
 
 //Persona
@@ -43,6 +52,15 @@ router.post("/VerInsumo",SPL_Insumo)
 router.post("/BajaInsumo",SPB_Insumo)
 router.post("/ModificarInsumo",SPM_Insumo)
 router.post("/HabilitarInsumo",SPH_Insumo)
+
+//Login
+router.post("/Login",SP_Login)
+
+//sedes
+router.post("/VerSedes",SPL_Sedes)
+
+//recuperar clave
+router.post("/RecuperarClave",SPM_Contraseña)
 
 
 

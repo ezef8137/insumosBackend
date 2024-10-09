@@ -1,16 +1,18 @@
 const { connect } = require("../../config");
 
-const SPH_Persona = async (req, res) => {
+const SP_Login = async (req, res) => {
   console.log(req.body);
   const {
-    IdPersona
+    Usuario,
+    Clave
   } = req.body;
 
   try {
     const pool = await connect(); // Obtenemos la conexión de la función connect
     const result = await pool.request()
-      .input('IdPersona', IdPersona)
-      .execute('SPH_Persona'); // Ejecuta el procedimiento almacenado en SQL Server
+      .input('Usuario', Usuario)
+      .input('Clave', Clave)
+      .execute('SP_Login'); // Ejecuta el procedimiento almacenado en SQL Server
 
       const message = result.recordset[0].Message;
 
@@ -26,4 +28,4 @@ const SPH_Persona = async (req, res) => {
   }
 };
 
-module.exports = { SPH_Persona };
+module.exports = { SP_Login };

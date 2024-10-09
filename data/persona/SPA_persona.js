@@ -7,7 +7,8 @@ const SPA_Persona = async (req, res) => {
     Apellido,
     FechaDeNacimiento,
     Dni,
-    Telefono
+    Telefono,
+    Email
   } = req.body;
 
   try {
@@ -18,6 +19,7 @@ const SPA_Persona = async (req, res) => {
       .input('p_fecha_de_nacimiento', FechaDeNacimiento)
       .input('p_dni', Dni)
       .input('p_telefono', Telefono)
+      .input('p_email', Email)
       .execute('SPA_persona');
 
     const message = result.recordset[0].Message;

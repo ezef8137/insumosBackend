@@ -5,7 +5,8 @@ const SPM_Usuario = async (req, res) => {
   const {
     IdUsuario,
     Usuario,
-    Clave,
+    ClaveActual,
+    NuevaClave,
     IdSede,
     TipoRol_idTipoRol
   } = req.body;
@@ -15,7 +16,8 @@ const SPM_Usuario = async (req, res) => {
     const result = await pool.request()
       .input('IdUsuario', IdUsuario)
       .input('Usuario', Usuario)
-      .input('Clave', Clave)
+      .input('ClaveActual', ClaveActual)
+      .input('NuevaClave', NuevaClave)
       .input('IdSede', IdSede)
       .input('TipoRol_idTipoRol', TipoRol_idTipoRol)
       .execute('SPM_Usuario');
