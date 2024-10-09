@@ -7,7 +7,8 @@ const SPM_Persona = async (req, res) => {
     Apellido,
     FechaDeNacimiento,
     Dni,
-    Telefono
+    Telefono,
+    Email
   } = req.body;
 
   try {
@@ -19,6 +20,7 @@ const SPM_Persona = async (req, res) => {
       .input('p_FechaNacimiento', FechaDeNacimiento)
       .input('p_Dni', Dni)
       .input('p_Telefono', Telefono)
+      .input('p_Email',Email)
       .execute('SPM_Persona');
 
     const message = result.recordset[0].Message;
