@@ -34,10 +34,10 @@ const SPM_Insumo = async (req, res) => {
     const message = result.recordset[0].Message;
 
     // Si el mensaje contiene éxito, enviar 200, sino, enviar 400
-    if (message.includes('con éxito')) {
-      res.status(200).send({ message });
+    if (message.includes('éxito')) {
+      res.status(200).send({ message,message,status:200 });
     } else {
-      res.status(400).send({ message });
+      res.status(400).send({ message,message,status:400 });
     }
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);

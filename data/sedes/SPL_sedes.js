@@ -6,7 +6,7 @@ const SPL_Sedes = async (req, res) => {
   try {
     const pool = await connect(); // Obtenemos la conexión de la función connect
     const result = await pool.request()
-      .input('FiltroSede', FiltroSede || '') // Pasar el filtro al procedimiento almacenado
+      .input('FiltroSede', FiltroSede) // Pasar el filtro al procedimiento almacenado
       .execute('SPL_Sedes'); // Ejecuta el procedimiento almacenado SPL_Sedes
 
     // Enviar el recordset directamente

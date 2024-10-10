@@ -18,9 +18,9 @@ const SP_Login = async (req, res) => {
 
       // Manejo de los códigos de estado basado en el mensaje
       if (message.includes('éxito')) {
-        res.status(200).send({ message });
+        res.status(200).send({ message,message,status:200 });
       } else{
-        res.status(400).send({message})
+        res.status(400).send({message,message,status:400})
       }
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);

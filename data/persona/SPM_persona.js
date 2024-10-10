@@ -27,9 +27,9 @@ const SPM_Persona = async (req, res) => {
 
     // Si el mensaje contiene éxito, enviar 200, sino, enviar 400
     if (message.includes('con éxito')) {
-      res.status(200).send({ message });
+      res.status(200).send({ message,status:200 });
     } else {
-      res.status(400).send({ message });
+      res.status(400).send({ message,status:400 });
     }
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);
