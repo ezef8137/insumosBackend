@@ -28,8 +28,13 @@ const {SP_Login} = require ("../data/login/login")
 //sedes
 const {SPL_Sedes}= require ("../data/sedes/SPL_sedes")
 
-//recuperar contraseña
-const {SPM_Contraseña}= require ("../data/Cambiar_Clave/RecuperarClave")
+//Cambiar contraseña
+const {SPM_Contraseña}= require ("../data/Cambiar_Clave/CambiarClave")
+
+//Recuprar clave
+const {ValidacionCorreo}= require ("../data/Recuperar_Clave/RecuperarClave")
+
+
 
 
 
@@ -60,7 +65,8 @@ router.post("/Login",SP_Login)
 router.post("/VerSedes",SPL_Sedes)
 
 //recuperar clave
-router.post("/RecuperarClave",SPM_Contraseña)
+router.post("/CambiarClave",SPM_Contraseña)
+router.post("/RecuperarClave",ValidacionCorreo)
 
 
 module.exports = router;
