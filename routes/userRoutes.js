@@ -44,6 +44,9 @@ const {SPL_CondicionInsumo}= require ("../data/Condicion_Insumo/SPL_CondicionIns
 //estado
 const {SPL_Estado}= require ("../data/Estado/SPL_Estado")
 
+//Rol
+const {SPL_Rol}= require("../data/Rol/SPL_Rol")
+
 
 
 
@@ -88,5 +91,9 @@ router.post("/VerCondicionInsumo",SPL_CondicionInsumo)
 //estado
 
 router.post("/VerEstado",SPL_Estado)
+
+
+//rol
+router.post("/ListarRol",SPL_Rol)
 
 module.exports = router;
