@@ -47,6 +47,10 @@ const {SPL_Estado}= require ("../data/Estado/SPL_Estado")
 //Rol
 const {SPL_Rol}= require("../data/Rol/SPL_Rol")
 
+//ubicacion
+
+const {SPL_Ubicacion}= require ("../data/Ubicacion/SPL_Ubicacion")
+
 
 
 
@@ -95,5 +99,7 @@ router.post("/VerEstado",SPL_Estado)
 
 //rol
 router.post("/ListarRol",SPL_Rol)
+
+router.post("/ListarUbicacion",SPL_Ubicacion)
 
 module.exports = router;
