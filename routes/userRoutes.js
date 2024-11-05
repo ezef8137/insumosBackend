@@ -30,13 +30,13 @@ const {SP_Login} = require ("../data/login/login")
 
 //sedes
 const {SPL_Sedes}= require ("../data/sedes/SPL_sedes")
-const{SPA_Sedes}=require("../data/sedes/SPA_sedes")
+//const{SPA_Sedes}=require("../data/sedes/SPA_sedes")
 
 //Cambiar contraseña
-const {SPM_Contraseña}= require ("../data/Cambiar_Clave/CambiarClave")
+//const {SPM_Contraseña}= require ("../data/Cambiar_Clave/CambiarClave")
 
 //Recuprar clave
-const {ValidacionCorreo}= require ("../data/Recuperar_Clave/RecuperarClave")
+//const {ValidacionCorreo}= require ("../data/Recuperar_Clave/RecuperarClave")
 
 //Condicion Insumo
 const {SPL_CondicionInsumo}= require ("../data/Condicion_Insumo/SPL_CondicionInsumo")
@@ -76,11 +76,11 @@ router.post("/Login",SP_Login)
 
 //sedes
 router.post("/VerSedes",SPL_Sedes)
-router.post("/AltaSede",SPA_Sedes)
+//router.post("/AltaSede",SPA_Sedes)
 
 //recuperar clave
-router.post("/CambiarClave",SPM_Contraseña)
-router.post("/RecuperarClave",ValidacionCorreo)
+//router.post("/CambiarClave",SPM_Contraseña)
+//router.post("/RecuperarClave",ValidacionCorreo)
 
 //tipo insumo
 router.post("/VerTipoInsumo",SPL_TipoInsumo)
@@ -96,4 +96,4 @@ router.post("/VerEstado",SPL_Estado)
 //rol
 router.post("/ListarRol",SPL_Rol)
 
-module.exports = router;
+module.exports = router;
