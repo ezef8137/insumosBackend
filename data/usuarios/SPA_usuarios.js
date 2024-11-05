@@ -26,7 +26,7 @@ const SPA_Usuario = async (req, res) => {
     if (message.includes('éxito')) {
       res.status(200).send({ message,status:200 });
     } else{
-      res.status(400).send({messagemessage,status:400})
+      res.status(400).send({message,status:400})
     }
   } catch (err) {
     console.error('Error al ejecutar el procedimiento almacenado:', err);
