@@ -8,7 +8,7 @@ const SPM_Usuario = async (req, res) => {
     ClaveActual,
     NuevaClave,
     IdSede,
-    TipoRol_idTipoRol
+    IdRol
   } = req.body;
 
   try {
@@ -19,7 +19,7 @@ const SPM_Usuario = async (req, res) => {
       .input('ClaveActual', ClaveActual)
       .input('NuevaClave', NuevaClave)
       .input('IdSede', IdSede)
-      .input('TipoRol_idTipoRol', TipoRol_idTipoRol)
+      .input('IdRol', IdRol)
       .execute('SPM_Usuario');
 
     const message = result.recordset[0].Message;

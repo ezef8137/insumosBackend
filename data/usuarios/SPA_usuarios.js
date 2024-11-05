@@ -7,7 +7,7 @@ const SPA_Usuario = async (req, res) => {
     Clave,
     IdPersona,
     IdSede,
-    TipoRol_idTipoRol
+    Rol
   } = req.body;
 
   try {
@@ -17,7 +17,7 @@ const SPA_Usuario = async (req, res) => {
       .input('Clave', Clave)
       .input('IdPersona', IdPersona)
       .input('IdSede', IdSede)
-      .input('TipoRol_idTipoRol', TipoRol_idTipoRol)
+      .input('IdRol', Rol)
       .execute('SPA_Usuario');
 
     const message = result.recordset[0].Message;

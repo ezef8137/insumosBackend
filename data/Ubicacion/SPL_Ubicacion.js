@@ -18,7 +18,7 @@ const SPL_Ubicacion = async (req, res) => {
     const pool = await connect(); // Obtenemos la conexión de la función connect
     const result = await pool.request()
       .input('FiltroUbicacion', FiltroUbicacion)
-      .execute('SPL_TipoInsumo'); // Ejecuta el procedimiento almacenado en SQL Server
+      .execute('SPL_Ubicacion'); // Ejecuta el procedimiento almacenado en SQL Server
 
     // Formatear las fechas del recordset, incluyendo FechaDeNacimiento
     const formattedResult = result.recordset.map(record => {
